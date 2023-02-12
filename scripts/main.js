@@ -8,6 +8,7 @@
 
 
 const input = document.querySelector('#input');
+const output = document.querySelector('#output')
 // var msg = []
 // msg = convertMessageToArray(input.value);
 
@@ -25,7 +26,7 @@ const finger5 = document.querySelector('#finger-5').value
 
 var msg = []
 var numberMsg = []
-var output = []
+var outputMsg = []
 
 const acceptedKeys = [
     finger1, finger2, finger3, finger4, finger5
@@ -51,8 +52,11 @@ function updateInput(event){
             numberMsg = convertMessageToNumbers(msg);
             console.log(numberMsg);
             const processing = combineNumbers(numberMsg);
-            
-            console.log(processing)
+            outputMsg = translateMsg(processing)
+            output.value = ''
+            for (letter of outputMsg) {
+                output.value += letter
+            }
         }
     }
     else if (event.key === 'Control') {
@@ -113,90 +117,108 @@ function combineNumbers(array) {
     console.log(numArray)
     return numArray
 }
-
-// def translate_msg(user_msg_list):
-//     # sorts out the numbers inputed from the OHK in ascending order
-//     for letter in range(len(user_msg_list)):
-//         if len(user_msg_list[letter]) > 1 :
-//             letter_sort = list(user_msg_list[letter])
-//             letter_sort.sort()
-//             user_msg_list[letter] = "".join(letter_sort)
         
 function translateMsg(msgArray) {
-    
+    const translatedMsg = []
+
+    for (number of msgArray) {
+        var letter = ''
+        switch (number) {
+            case 1:
+                letter = 'a'
+                break
+            case 2:
+                letter = 'e'
+                break
+            case 3:
+                letter = 'i'
+                break
+            case 4:
+                letter = 'o'
+                break
+            case 5:
+                letter = 'u'
+                break
+            case 12:
+                letter = 'b'
+                break
+            case 13:
+                letter = 'c'
+                break
+            case 14:
+                letter = 'd'
+                break
+            case 15:
+                letter = 'f'
+                break
+            case 23:
+                letter = 'g'
+                break
+            case 24:
+                letter = 'h'
+                break
+            case 25:
+                letter = 'j'
+                break
+            case 34:
+                letter = 'k'
+                break
+            case 35:
+                letter = 'l'
+                break
+            case 45:
+                letter = 'm'
+                break
+            case 123:
+                letter = 'n'
+                break
+            case 124:
+                letter = 'p'
+                break
+            case 125:
+                letter = 'q'
+                break
+            case 134:
+                letter = 'r'
+                break
+            case 135:
+                letter = 's'
+                break
+            case 145:
+                letter = 't'
+                break
+            case 234:
+                letter = 'v'
+                break
+            case 235:
+                letter = 'w'
+                break
+            case 245:
+                letter = 'x'
+                break
+            case 345:
+                letter = 'y'
+                break
+            case 1234:
+                letter = 'z'
+                break
+            case 1235:
+                letter = "!"
+                break
+            case 1245:
+                letter = "?"
+                break
+            case 1345:
+                letter = ","
+                break
+            case 2345:
+                letter = "."
+                break
+            case 12345:
+                letter = " "
+                break
+        }
+        translatedMsg.push(letter)
+    }
+    return translatedMsg
 }
-
-
-//         user_msg_list[letter] = int(user_msg_list[letter])
-    
-//         # Translates the users button inputs into letters
-//         match user_msg_list[letter]:
-//             case 1:
-//                 user_msg_list[letter] = "a"
-//             case 2:
-//                 user_msg_list[letter] = "e"
-//             case 3:
-//                 user_msg_list[letter] = "i"
-//             case 4:
-//                 user_msg_list[letter] = "o"
-//             case 5:
-//                 user_msg_list[letter] = "u"
-//             case 12:
-//                 user_msg_list[letter] = "b"
-//             case 13:
-//                 user_msg_list[letter] = "c"
-//             case 14:
-//                 user_msg_list[letter] = "d"
-//             case 15:
-//                 user_msg_list[letter] = "f"
-//             case 23:
-//                 user_msg_list[letter] = "g"
-//             case 24:
-//                 user_msg_list[letter] = "h"
-//             case 25:
-//                 user_msg_list[letter] = "j"
-//             case 34:
-//                 user_msg_list[letter] = "k"
-//             case 35:
-//                 user_msg_list[letter] = "l"
-//             case 45:
-//                 user_msg_list[letter] = "m"
-//             case 123:
-//                 user_msg_list[letter] = "n"
-//             case 124:
-//                 user_msg_list[letter] = "p"
-//             case 125:
-//                 user_msg_list[letter] = "q"
-//             case 134:
-//                 user_msg_list[letter] = "r"
-//             case 135:
-//                 user_msg_list[letter] = "s"
-//             case 145:
-//                 user_msg_list[letter] = "t"
-//             case 234:
-//                 user_msg_list[letter] = "v"
-//             case 235:
-//                 user_msg_list[letter] = "w"
-//             case 245:
-//                 user_msg_list[letter] = "x"
-//             case 345:
-//                 user_msg_list[letter] = "y"
-//             case 1234:
-//                 user_msg_list[letter] = "z"
-//             case 1235:
-//                 user_msg_list[letter] = "!"
-//             case 1245:
-//                 user_msg_list[letter] = "?"
-//             case 1345:
-//                 user_msg_list[letter] = ","
-//             case 2345:
-//                 user_msg_list[letter] = "."
-//             case 12345:
-//                 user_msg_list[letter] = " "
-
-//     return user_msg_list
-    
-
-
-// if __name__ == "__main__":
-//     main()
