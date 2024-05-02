@@ -1,4 +1,6 @@
-One Handed Keyboard © 2022
+# Overview
+
+One Handed Keyboard - created 2022
 
 Designer - Jarod Hakala
 Developer - Ethan Houser
